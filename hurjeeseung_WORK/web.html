@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+    
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Slider</title>
+    <link href="./jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+   <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src="./jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+
+</head>
+ 
+<body>
+    <!-- 여기는 javascript -->
+    <script>
+        
+        /*
+       <YEAR>1930 -2020  :style
+        <TEMP>0 - 1000 ;
+        */
+
+
+        $(document).on("mousemove", function(event) {
+
+$('.cover-desktop-note-x, .cover-desktop-note-y').css('animation', 'fadeout 1.2s 6s forwards linear');
+
+$('.mainheading').addClass('mainheading--desktop');
+
+// track cursor position on viewport in percent
+xPercent = event.pageX / $( 'section.cover' ).width() * 100;
+yPercent = event.pageY / $( 'section.cover' ).height() * 100;
+
+// remove decimals
+xPercentFixed = xPercent.toFixed();
+yPercentFixed = yPercent.toFixed();
+
+// translate viewport position to font axes
+// x to width / 400–600 / spanne 200, start bei 400
+// y to weight / 60–100 / spanne 40, start bei 60
+
+// xWidth = 400 + xPercentFixed*2;
+// yWeight = 60 + yPercentFixed*40/100;
+
+
+// translate viewport position to font axes
+// x to TEMP / 0-1000 / spanne 1000, start bei 0
+// y to YEAR / 1930-2020 / spanne 90, start bei 1930
+
+ xWidth = 0 + xPercentFixed*10;
+ yWeight = 1930 + yPercentFixed*90/100;
+
+
+// change font axes
+$(".mainheading--desktop").css(
+  "font-variation-settings",
+  " 'YEAR' " + yWeight +", 'TEMP' " + xWidth + ""
+);
+});
+
+
+        $(function() {
+            $("#YEAR").slider({
+                range: "max",
+                min: 1930,
+                max: 2020,
+                value: 1,
+                slide: function(event, ui) {
+                    $("#YEAR-val").val(ui.value);
+                    let temp=$("#TEMP-val").val();
+                    $("#input-letter").css('font-variation-settings',"'YEAR' "+ui.value +",'TEMP' "+temp);
+ 
+                }
+            });
+            $("#YEAR-val").val($("#YEAR").slider("value"));
+ 
+ 
+            $("#TEMP").slider({
+                range: "max",
+                min: 0,
+                max: 1000,
+                values: 1,
+                slide: function(event, ui) {
+                    $("#TEMP-val").val(ui.value);
+                    let year= $("#YEAR-val").val();
+                   $("#input-letter").css('font-variation-settings',"'TEMP' "+ui.value+",'YEAR' "+year);
+
+                }
+            });
+            $("#TEMP-val").val($("#TEMP").slider("value"));
+
+            $("#input-letter").on("propertychange change keyup paste input",function(){
+                $(".output-letter").html($(this).val());
+            })
+           
+ 
+        });
+
+    </script>
+
+    <!--여기는 css -->
+    <style>
+     
+        @font-face {
+            font-family: "NEWtro_T";
+            src: url("./font/newtrotfonttestGX.ttf");
+        }
+        body {
+           font-family: "NEWtro_T", Times;
+           display: block;
+           align-items: center;
+           justify-content: center;
+           text-align: center;
+           min-height: 100vh;
+           background-color: #009884;
+           color: #ffe354;
+           
+        }
+
+   .slidebar{
+    left: 50%;
+    width: 500px;
+    margin-left: -250px;
+   
+   }
+   .slideval{
+    border:0; 
+    color:#adadad; 
+    font-weight:bold;
+    width: 40px;
+    
+   }
+
+   #input-letter{
+       height: 500px;
+       width: 75%;
+       font-size: 14vh;
+       border:0;
+       font-family: "NEWtro_T"; /*들어가는 글자 폰트 지정이랑 초기 설정 값*/
+ 
+       background-color: #009884;
+       text-align: center;
+       color: #ffe354;
+       /* border: 1px solid gray;*/
+       font-variation-settings: "YEAR" 1930, "TEMP" 0;
+   }
+   .output-letter{ /*쓴글씨들 보이는 공간 css*/
+       
+    font-size: 8vh;
+    margin-top: 2%;
+   
+    
+
+   }
+
+
+   </style>
+
+
+
+
+
+
+    <!--여기부턴 html 내용-->    
+
+    <br><br><br><br>
+    <input id="input-letter" type="text">
+
+    <div>
+    <p style="font-family: Arial, Helvetica, sans-serif;" > <!--font family속성에 폰트 설정한거야 여기 안의 글자는 설정한 폰트로 보여-->
+        YEAR : <input class="slideval" type="text" id="YEAR-val" readonly >
+    </p>
+    <div class="slidebar" id="YEAR" width=50%></div> <!--여기 슬라이드 바-->
+    </div>
+ 
+    <p style="font-family: Arial, Helvetica, sans-serif;">
+        TEMP : <input class="slideval" type="text" id="TEMP-val" readonly>
+    </p>
+    <div class="slidebar" id="TEMP"></div>
+
+
+<br>
+
+    <div id="input-function">
+        
+<br>
+        <!--여기 글씨체는 고정이야 -->
+        <div id=type1>
+        <div class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 0"></div> <!--여기서 저기 YEAR랑 TEMP 값바꾸면 바뀌는거야 -->
+        <div class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 0"></div>
+        <div class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 1000"></div>
+        <div class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 1000"></div>
+        </div>
+        
+        
+    </div>
+    
+  
+    
+    
+    
+ 
+    
+</body>
+ 
+</html>
+ 
