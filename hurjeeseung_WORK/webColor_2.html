@@ -71,10 +71,84 @@
  
         });
 
+
+        $(document).mousemove(function(event){
+            
+            xPercent = event.pageX / $( '.first-part' ).width() * 100;
+            yPercent = event.pageY / $( '.first-part' ).height() * 100;
+            xPercentFixed = xPercent.toFixed();
+            yPercentFixed = yPercent.toFixed();
+
+            xWidth = 0 + xPercentFixed*10;
+            yWeight = 1930 + yPercentFixed*90/100;
+            $("#input-letter").css('font-variation-settings',"'TEMP' "+xWidth+",'YEAR' "+yWeight);
+           // $("span").text(xWidth + ", " + yWeight);
+        });
     </script>
 
-    <!--여기는 css -->
-    <style>
+
+
+
+
+
+
+    <!--여기부턴 html 내용-->    
+
+ 
+   <div class="first-part">
+    <div class="input-div">
+    <input id="input-letter" type="text" >
+   <!--
+    <div>
+    <p style="font-family: Arial, Helvetica, sans-serif;" > <font family속성에 폰트 설정한거야 여기 안의 글자는 설정한 폰트로 보여
+        YEAR : <input class="slideval" type="text" id="YEAR-val" readonly >
+    </p>
+    <div class="slidebar" id="YEAR" width=50%></div> 여기 슬라이드 바
+    </div>
+ 
+    <p style="font-family: Arial, Helvetica, sans-serif;">
+        TEMP : <input class="slideval" type="text" id="TEMP-val" readonly>
+    </p>
+    <div class="slidebar" id="TEMP"></div>
+    </div>
+--><span></span>
+    <div class="note-x">빠르기</div>
+    <div class="note-y">시대</div>
+    </div>
+</div>
+
+<br><br><br><br><br>
+
+    <div id="input-function">
+        
+<br>
+        <!--여기 글씨체는 고정이야 -->
+        <div id=type1>
+        <div class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 0"></div> <!--여기서 저기 YEAR랑 TEMP 값바꾸면 바뀌는거야 -->
+        <div class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 0"></div>
+        <div class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 1000"></div>
+        <div class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 1000"></div>
+        </div>
+        
+        
+    </div>
+    
+  <script>
+      var letters=[{bgcolor:'009884',font:'FFE261'},{bgcolor:'005528',font:'DE6B28'},{bgcolor:'6EC8EB',font:'D4592B'},{bgcolor:'531916',font:'62C6F0'},{bgcolor:'FED36F',font:'A13A3B'},{bgcolor:'B4D2C1',font:'BC1664'},{bgcolor:'4C2859',font:'F1D338'},{bgcolor:'3981C0',font:'F3E935'},{bgcolor:'F19E46',font:'3471B6'}];
+        
+        let idx =  Math.floor(Math.random() * letters.length); // 컬러는 상기 변수들을 조립하는데 랜덤으로 조립한다. 
+        document.bgColor =letters[idx].bgcolor;
+        document.fgColor=letters[idx].font;
+      document.getElementById("input-letter").style.color= '#'+letters[idx].font;
+//      $("#input-letter").css('color','#'+letters[idx].font);
+      document.getElementById("input-letter").value="뉴트롯체"
+      let list =document.getElementsByClassName("output-letter")
+      for(elem of list){
+          elem.textContent="뉴트롯체"
+      }
+  </script>
+      <!--여기는 css -->
+      <style>
      
         @font-face {
             font-family: "NEWtro_T";
@@ -109,13 +183,19 @@
     width: 40px;
     
    }
+   .first-part{
+       
+       width: 98vw;
+       height: 100vh;
+   }
 
    #input-letter:focus{
        outline: none;
    }
    #input-letter{
         position: relative;
-       height: 500px;
+       height: 23vh;
+       top : 36vh ;
        width: 75%;
        font-size: 10rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
        border:0;
@@ -123,8 +203,6 @@
  
        background-color: transparent;
        text-align: center;
-       /*color: #ffe354;*/
-       /* border: 1px solid gray;*/
        font-variation-settings: "YEAR" 1930, "TEMP" 0;
    }
    .output-letter{ /*쓴글씨들 보이는 공간 css*/
@@ -134,7 +212,7 @@
    }
 
    .note-y{
-    width: 50.6%;
+    width: 50.2%;
     height: 100%;
     border-left: dashed 1px #000;
     position: absolute;
@@ -167,64 +245,6 @@
    }
    </style>
 
-
-
-
-
-
-    <!--여기부턴 html 내용-->    
-
- 
-   <div class="first-part">
-    <div class="input-div">
-    <input id="input-letter" type="text" >
-   
-    <div>
-    <p style="font-family: Arial, Helvetica, sans-serif;" > <!--font family속성에 폰트 설정한거야 여기 안의 글자는 설정한 폰트로 보여-->
-        YEAR : <input class="slideval" type="text" id="YEAR-val" readonly >
-    </p>
-    <div class="slidebar" id="YEAR" width=50%></div> <!--여기 슬라이드 바-->
-    </div>
- 
-    <p style="font-family: Arial, Helvetica, sans-serif;">
-        TEMP : <input class="slideval" type="text" id="TEMP-val" readonly>
-    </p>
-    <div class="slidebar" id="TEMP"></div>
-    </div>
-    <div class="note-x">빠르기</div>
-    <div class="note-y">시대</div>
-    </div>
-
-<br><br><br><br><br>
-
-    <div id="input-function">
-        
-<br>
-        <!--여기 글씨체는 고정이야 -->
-        <div id=type1>
-        <div class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 0"></div> <!--여기서 저기 YEAR랑 TEMP 값바꾸면 바뀌는거야 -->
-        <div class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 0"></div>
-        <div class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 1000"></div>
-        <div class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 1000"></div>
-        </div>
-        
-        
-    </div>
-    
-  <script>
-      var letters=[{bgcolor:'009884',font:'FFE261'},{bgcolor:'005528',font:'DE6B28'},{bgcolor:'6EC8EB',font:'D4592B'},{bgcolor:'531916',font:'62C6F0'},{bgcolor:'FED36F',font:'A13A3B'},{bgcolor:'B4D2C1',font:'BC1664'},{bgcolor:'4C2859',font:'F1D338'},{bgcolor:'3981C0',font:'F3E935'},{bgcolor:'F19E46',font:'3471B6'}];
-        
-        let idx =  Math.floor(Math.random() * letters.length); // 컬러는 상기 변수들을 조립하는데 랜덤으로 조립한다. 
-        document.bgColor =letters[idx].bgcolor;
-        document.fgColor=letters[idx].font;
-      document.getElementById("input-letter").style.color = letters[idx].font;
-      document.getElementById("input-letter").value="뉴트롯체"
-      let list =document.getElementsByClassName("output-letter")
-      console.log(list)
-      for(elem of list){
-          elem.textContent="뉴트롯체"
-      }
-  </script>
     
     
 
