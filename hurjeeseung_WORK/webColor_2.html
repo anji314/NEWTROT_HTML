@@ -17,23 +17,6 @@
 <body>
     <!-- 여기는 javascript -->
     <script>
-        
-        /*
-       <YEAR>1930 -2020  :style
-        <TEMP>0 - 1000 ;
-        */
-
-        /*var letters = ['009884', '4CDBFF', '531713', 'FFD467', '005528', 'B3D2C1', '4C265A', '2B82D1', '2B86B8'];*/ // 원하는 색상을 'letters'에 지정한다. 변소는 맘데로 변경해도 무관하다. 
-        
-        
-        /*여기에 배경이랑 글씨색 조합을 추가해
-        var letters=[{bgcolor:'009884',font:'FFE261'},{bgcolor:'005528',font:'DE6B28'}];
-        
-        let idx =  Math.floor(Math.random() * letters.length); // 컬러는 상기 변수들을 조립하는데 랜덤으로 조립한다. 
-        document.bgColor =letters[idx].bgcolor;
-        document.fgColor=letters[idx].font;
-        
-*/
         $(function() {
             $("#YEAR").slider({
                 range: "max",
@@ -66,8 +49,22 @@
 
             $("#input-letter").on("propertychange change keyup paste input",function(){
                 $(".output-letter").html($(this).val());
-            })
+               var content = $(this).val();
+                if(content.length <= 6 && content.length>=0){
+                $("#input-letter").css("fontSize",'10rem');
+                }else if (content.length > 6 && content.length <=8 ){
+                $("#input-letter").css("fontSize",'8rem');
+                }
+                else if(content.length>8&&content.length<=21){
+                $("#input-letter").css('font-size','6rem');
+                }
+                else if(content.length>21){
+                $("#input-letter").css('font-size','4rem');
+                }
+            });
            
+
+
  
         });
 
@@ -82,8 +79,8 @@
             xWidth = 0 + xPercentFixed*10;
             yWeight = 1930 + yPercentFixed*90/100;
             $("#input-letter").css('font-variation-settings',"'TEMP' "+xWidth+",'YEAR' "+yWeight);
-           // $("span").text(xWidth + ", " + yWeight);
         });
+      
     </script>
 
 
@@ -97,7 +94,7 @@
  
    <div class="first-part">
     <div class="input-div">
-    <input id="input-letter" type="text" >
+    <textarea id="input-letter" maxlength="45"></textarea>
    <!--
     <div>
     <p style="font-family: Arial, Helvetica, sans-serif;" > <font family속성에 폰트 설정한거야 여기 안의 글자는 설정한 폰트로 보여
@@ -111,7 +108,7 @@
     </p>
     <div class="slidebar" id="TEMP"></div>
     </div>
---><span></span>
+-->
     <div class="note-x">빠르기</div>
     <div class="note-y">시대</div>
     </div>
@@ -133,6 +130,7 @@
         
     </div>
     
+
   <script>
       var letters=[{bgcolor:'009884',font:'FFE261'},{bgcolor:'005528',font:'DE6B28'},{bgcolor:'6EC8EB',font:'D4592B'},{bgcolor:'531916',font:'62C6F0'},{bgcolor:'FED36F',font:'A13A3B'},{bgcolor:'B4D2C1',font:'BC1664'},{bgcolor:'4C2859',font:'F1D338'},{bgcolor:'3981C0',font:'F3E935'},{bgcolor:'F19E46',font:'3471B6'}];
         
@@ -147,6 +145,8 @@
           elem.textContent="뉴트롯체"
       }
   </script>
+
+
       <!--여기는 css -->
       <style>
      
@@ -193,9 +193,9 @@
        outline: none;
    }
    #input-letter{
-        position: relative;
-       height: 23vh;
-       top : 36vh ;
+       position: relative;
+       height: 30vh;
+       top : 35vh ;
        width: 75%;
        font-size: 10rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
        border:0;
@@ -203,6 +203,7 @@
  
        background-color: transparent;
        text-align: center;
+       overflow: hidden;
        font-variation-settings: "YEAR" 1930, "TEMP" 0;
    }
    .output-letter{ /*쓴글씨들 보이는 공간 css*/
