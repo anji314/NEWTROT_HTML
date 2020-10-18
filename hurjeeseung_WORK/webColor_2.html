@@ -47,15 +47,26 @@
             });
             $("#TEMP-val").val($("#TEMP").slider("value"));
 
+
             $("#input-letter").on("propertychange change keyup paste input",function(){
                 $(".output-letter").html($(this).val());
                var content = $(this).val();
+
+               $(this)[0].style.height='auto';
+               $(this).height( $(this).prop('scrollHeight'));
+
+               var output=$(".output-letter");
+               for(var i=0;i<output.length;i++)output[i].style.height='auto';
+               $(".output-letter").height( $(".output-letter").prop('scrollHeight'));
+
+
+               // 여기가 글씨 개수대로 글자크기 바꾸는 곳이야, 글자수는 숫자들 바꾸면 되고 글자크기는 맘대로바꿔!
                 if(content.length <= 6 && content.length>=0){
                 $("#input-letter").css("fontSize",'10rem');
-                }else if (content.length > 6 && content.length <=8 ){
+                }else if (content.length > 6 && content.length <=15 ){
                 $("#input-letter").css("fontSize",'8rem');
                 }
-                else if(content.length>8&&content.length<=28){
+                else if(content.length>15&&content.length<=28){
                 $("#input-letter").css('font-size','6rem');
                 }
                 else if(content.length>28){
@@ -94,7 +105,11 @@
  
    <div class="first-part">
     <div class="input-div">
-    <textarea id="input-letter" maxlength="50"></textarea>
+        <div>
+    <textarea id="input-letter" maxlength="50" rows="1" style="resize: none;"></textarea>
+    </div>
+
+    </div>
    <!--
     <div>
     <p style="font-family: Arial, Helvetica, sans-serif;" > <font family속성에 폰트 설정한거야 여기 안의 글자는 설정한 폰트로 보여
@@ -111,7 +126,7 @@
 -->
     <div class="note-x">빠르기</div>
     <div class="note-y">시대</div>
-    </div>
+    
 </div>
 
 <br><br><br><br><br>
@@ -121,10 +136,10 @@
 <br>
         <!--여기 글씨체는 고정이야 -->
         <div id=type1>
-        <div class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 0"></div> <!--여기서 저기 YEAR랑 TEMP 값바꾸면 바뀌는거야 -->
-        <div class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 0"></div>
-        <div class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 1000"></div>
-        <div class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 1000"></div>
+        <textarea class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 0" rows="1" readonly></textarea> <!--여기서 저기 YEAR랑 TEMP 값바꾸면 바뀌는거야 -->
+        <textarea class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 0" rows="1" readonly></textarea>
+        <textarea class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 1000" rows="1" readonly></textarea>
+        <textarea class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 1000" rows="1" readonly></textarea>
         </div>
         
         
@@ -134,12 +149,18 @@
   <script>
       var letters=[{bgcolor:'009884',font:'FFE261'},{bgcolor:'005528',font:'DE6B28'},{bgcolor:'6EC8EB',font:'D4592B'},{bgcolor:'531916',font:'62C6F0'},{bgcolor:'FED36F',font:'A13A3B'},{bgcolor:'B4D2C1',font:'BC1664'},{bgcolor:'4C2859',font:'F1D338'},{bgcolor:'3981C0',font:'F3E935'},{bgcolor:'F19E46',font:'3471B6'}];
         
-        let idx =  Math.floor(Math.random() * letters.length); // 컬러는 상기 변수들을 조립하는데 랜덤으로 조립한다. 
+        let idx =  Math.floor(Math.random() * letters.length); // 컬러는 상기 변수들을 조립하는데 랜덤으로 조립한다.
+
         document.bgColor =letters[idx].bgcolor;
         document.fgColor=letters[idx].font;
-      document.getElementById("input-letter").style.color= '#'+letters[idx].font;
-//      $("#input-letter").css('color','#'+letters[idx].font);
+
+      
+
+      var text=document.getElementsByTagName("textarea");
+      for(var i=0;i<text.length;i++)text[i].style.color='#'+letters[idx].font;
+
       document.getElementById("input-letter").value="글자를 입력하세요."
+
       let list =document.getElementsByClassName("output-letter")
       for(elem of list){
           elem.textContent="글자를 입력하세요."
@@ -148,27 +169,26 @@
 
 
       <!--여기는 css -->
-      <style>
+<style>
      
-        @font-face {
-            font-family: "NEWtro_T";
-            src: url("./font/newtrotfonttestGX.ttf");
-        }
+    @font-face {
+        font-family: "NEWtro_T";
+        src: url("./font/newtrotfonttestGX.ttf");
+    }
+    
         
-            
-        body {
-           font-family: "NEWtro_T", Times;
-           display: block;
-           align-items: center;
-           justify-content: center;
-           text-align: center;
-           min-height: 100vh;
-           /* background-color: #009884; */
-           /*color: #ffe354;*/
-           
-        }
-
-        
+    body {
+       font-family: "NEWtro_T", Times;
+       display: block;
+       align-items: center;
+       justify-content: center;
+       text-align: center;
+       min-height: 100vh;
+       /* background-color: #009884; */
+       /*color: #ffe354;*/
+       
+    }
+    
 
    .slidebar{
     left: 50%;
@@ -194,20 +214,23 @@
    }
    #input-letter{
        position: relative;
-       height: 40vh;
-       top : 35vh ;
-       width: 75%;
-       font-size: 8rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
-       border:0;
+       font-size: 7.5rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
        font-family: "NEWtro_T"; /*들어가는 글자 폰트 지정이랑 초기 설정 값*/
  
-       background-color: transparent;
-       text-align: center;
-       overflow: hidden;
        font-variation-settings: "YEAR" 1930, "TEMP" 0;
+      
+   }
+   textarea{
+    border:0;
+    font-family: "NEWtro_T";
+    width: 75%;
+    background-color: transparent;
+    text-align: center;
+    overflow: hidden;
    }
    .output-letter{ /*쓴글씨들 보이는 공간 css*/
-       
+    
+    resize: none;
     font-size: 5rem; /*여기가 쓴글씨 나오는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
     margin-top: 3%;
     
@@ -227,7 +250,7 @@
    }
    .note-x{
     width: 100%;
-    height: 50%;
+    height: 50.3%;
     border-bottom: dashed 1px #000;
     position: absolute;
     top: 0;
@@ -240,8 +263,10 @@
    
    .input-div{
     position: relative;
-    width: 100%;
-    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100vw;
+    height: 100vh;
     z-index: 1;
 
    }
