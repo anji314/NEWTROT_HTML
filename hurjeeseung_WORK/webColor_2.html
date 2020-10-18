@@ -94,7 +94,7 @@
  
    <div class="first-part">
     <div class="input-div">
-    <textarea id="input-letter" maxlength="45"></textarea>
+    <textarea id="input-letter" maxlength="50"></textarea>
    <!--
     <div>
     <p style="font-family: Arial, Helvetica, sans-serif;" > <font family속성에 폰트 설정한거야 여기 안의 글자는 설정한 폰트로 보여
@@ -139,10 +139,10 @@
         document.fgColor=letters[idx].font;
       document.getElementById("input-letter").style.color= '#'+letters[idx].font;
 //      $("#input-letter").css('color','#'+letters[idx].font);
-      document.getElementById("input-letter").value="뉴트롯체"
+      document.getElementById("input-letter").value="글자를 입력하세요."
       let list =document.getElementsByClassName("output-letter")
       for(elem of list){
-          elem.textContent="뉴트롯체"
+          elem.textContent="글자를 입력하세요."
       }
   </script>
 
@@ -194,10 +194,10 @@
    }
    #input-letter{
        position: relative;
-       height: 30vh;
+       height: 40vh;
        top : 35vh ;
        width: 75%;
-       font-size: 10rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
+       font-size: 8rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
        border:0;
        font-family: "NEWtro_T"; /*들어가는 글자 폰트 지정이랑 초기 설정 값*/
  
@@ -209,7 +209,8 @@
    .output-letter{ /*쓴글씨들 보이는 공간 css*/
        
     font-size: 5rem; /*여기가 쓴글씨 나오는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
-    margin-top: 2%;
+    margin-top: 3%;
+    
    }
 
    .note-y{
