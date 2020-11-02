@@ -93,7 +93,7 @@
         });
       
     </script>
-
+ 
 
 
 
@@ -106,7 +106,7 @@
    <div class="first-part">
     <div class="input-div">
         <div>
-    <textarea id="input-letter" maxlength="50" rows="1" style="resize: none;"></textarea>
+    <textarea id="input-letter" maxlength="50" rows="1" style="resize: none;" spellcheck="false"></textarea>
     </div>
 
     </div>
@@ -228,11 +228,14 @@
     text-align: center;
     overflow: hidden;
    }
+  
+  
    .output-letter{ /*쓴글씨들 보이는 공간 css*/
     
     resize: none;
     font-size: 5rem; /*여기가 쓴글씨 나오는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
     margin-top: 3%;
+    outline: none;
     
    }
 
