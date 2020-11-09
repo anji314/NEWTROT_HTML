@@ -1,0 +1,96 @@
+
+    body {
+        font-family: "NEWtro_T", Times;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 100vh;
+ 
+        
+     }
+     
+ 
+    .slidebar{
+     left: 50%;
+     width: 500px;
+     margin-left: -250px;
+    
+    }
+    .slideval{
+     border:0; 
+     color:#adadad; 
+     font-weight:bold;
+     width: 40px;
+     
+    }
+    .first-part{
+        
+        width: 98vw;
+        height: 100vh;
+    }
+ 
+    #input-letter:focus{
+        outline: none;
+    }
+    #input-letter{
+        position: relative;
+        font-size: 7.5rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
+        font-family: "NEWtro_T"; /*들어가는 글자 폰트 지정이랑 초기 설정 값*/
+  
+        font-variation-settings: "YEAR" 1930, "TEMP" 0;
+       
+    }
+    textarea{
+     border:0;
+     font-family: "NEWtro_T";
+     width: 75%;
+     background-color: transparent;
+     text-align: center;
+     overflow: hidden;
+    }
+   
+   
+    .output-letter{ /*쓴글씨들 보이는 공간 css*/
+     
+     resize: none;
+     font-size: 5rem; /*여기가 쓴글씨 나오는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
+     margin-top: 3%;
+     outline: none;
+     
+    }
+ 
+    .note-y{
+     width: 50.2%;
+     height: 100%;
+     border-left: dashed 1px #000;
+     position: absolute;
+     top: 0;
+     right: 0;
+     font-size: 12px;
+     text-align: left;
+     line-height: 195vh;
+     z-index: -300;
+    }
+    .note-x{
+     width: 100%;
+     height: 50.3%;
+     border-bottom: dashed 1px #000;
+     position: absolute;
+     top: 0;
+     left: 0;
+     text-align: right;
+     line-height: 95vh;
+     font-size: 12px;
+     z-index: -400;
+    }
+    
+    .input-div{
+     position: relative;
+     display: table-cell;
+     vertical-align: middle;
+     width: 100vw;
+     height: 100vh;
+     z-index: 1;
+ 
+    }

@@ -1,7 +1,6 @@
 
 <!doctype html>
 
-
 <html lang="en">
     
 <head>
@@ -12,94 +11,13 @@
     <script src="./jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js"></script>
 
     <link rel="stylesheet" type="text/css" href="./Newtrot.css">
-   
-
+    <link rel="stylesheet" type="text/css" href="./Newtrot_html.css">
+    
 </head>
  
 <body>
-    <!-- 여기는 javascript -->
-    <script>
-        $(function() {
-            $("#YEAR").slider({
-                range: "max",
-                min: 1930,
-                max: 2020,
-                value: 1,
-                slide: function(event, ui) {
-                    $("#YEAR-val").val(ui.value);
-                    let temp=$("#TEMP-val").val();
-                    $("#input-letter").css('font-variation-settings',"'YEAR' "+ui.value +",'TEMP' "+temp);
- 
-                }
-            });
-            $("#YEAR-val").val($("#YEAR").slider("value"));
- 
- 
-            $("#TEMP").slider({
-                range: "max",
-                min: 0,
-                max: 1000,
-                values: 1,
-                slide: function(event, ui) {
-                    $("#TEMP-val").val(ui.value);
-                    let year= $("#YEAR-val").val();
-                   $("#input-letter").css('font-variation-settings',"'TEMP' "+ui.value+",'YEAR' "+year);
-
-                }
-            });
-            $("#TEMP-val").val($("#TEMP").slider("value"));
-
-
-            $("#input-letter").on("propertychange change keyup paste input",function(){
-                $(".output-letter").html($(this).val());
-               var content = $(this).val();
-
-               $(this)[0].style.height='auto';
-               $(this).height( $(this).prop('scrollHeight'));
-
-               var output=$(".output-letter");
-               for(var i=0;i<output.length;i++)output[i].style.height='auto';
-               $(".output-letter").height( $(".output-letter").prop('scrollHeight'));
-
-
-               // 여기가 글씨 개수대로 글자크기 바꾸는 곳이야, 글자수는 숫자들 바꾸면 되고 글자크기는 맘대로바꿔!
-                if(content.length <= 6 && content.length>=0){
-                $("#input-letter").css("fontSize",'10rem');
-                }else if (content.length > 6 && content.length <=15 ){
-                $("#input-letter").css("fontSize",'8rem');
-                }
-                else if(content.length>15&&content.length<=28){
-                $("#input-letter").css('font-size','6rem');
-                }
-                else if(content.length>28){
-                $("#input-letter").css('font-size','4rem');
-                }
-            });
-           
-
-
- 
-        });
-
-
-        $(document).mousemove(function(event){
-            
-            xPercent = event.pageX / $( '.first-part' ).width() * 100;
-            yPercent = event.pageY / $( '.first-part' ).height() * 100;
-            xPercentFixed = xPercent.toFixed();
-            yPercentFixed = yPercent.toFixed();
-
-            xWidth = 0 + xPercentFixed*10;
-            yWeight = 1930 + yPercentFixed*90/100;
-            $("#input-letter").css('font-variation-settings',"'TEMP' "+xWidth+",'YEAR' "+yWeight);
-        });
-      
-    </script>
- 
-
-
-
-
+    
+    <script type="text/javascript" src="./Newtrot_function.js"></script>
 
 
     <!--여기부턴 html 내용-->    
@@ -135,6 +53,11 @@
     </div>
     
 
+
+
+
+
+    <!--화면 생성시 초기화 화면-->
   <script>
       var letters=[{bgcolor:'009884',font:'FFE261'},{bgcolor:'005528',font:'DE6B28'},{bgcolor:'6EC8EB',font:'D4592B'},{bgcolor:'531916',font:'62C6F0'},{bgcolor:'FED36F',font:'A13A3B'},{bgcolor:'B4D2C1',font:'BC1664'},{bgcolor:'4C2859',font:'F1D338'},{bgcolor:'3981C0',font:'F3E935'},{bgcolor:'F19E46',font:'3471B6'}];
         
@@ -156,112 +79,6 @@
       }
   </script>
 
-
-      <!--여기는 css -->
-<style>
-
-    body {
-       font-family: "NEWtro_T", Times;
-       display: block;
-       align-items: center;
-       justify-content: center;
-       text-align: center;
-       min-height: 100vh;
-
-       
-    }
-    
-
-   .slidebar{
-    left: 50%;
-    width: 500px;
-    margin-left: -250px;
-   
-   }
-   .slideval{
-    border:0; 
-    color:#adadad; 
-    font-weight:bold;
-    width: 40px;
-    
-   }
-   .first-part{
-       
-       width: 98vw;
-       height: 100vh;
-   }
-
-   #input-letter:focus{
-       outline: none;
-   }
-   #input-letter{
-       position: relative;
-       font-size: 7.5rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
-       font-family: "NEWtro_T"; /*들어가는 글자 폰트 지정이랑 초기 설정 값*/
- 
-       font-variation-settings: "YEAR" 1930, "TEMP" 0;
-      
-   }
-   textarea{
-    border:0;
-    font-family: "NEWtro_T";
-    width: 75%;
-    background-color: transparent;
-    text-align: center;
-    overflow: hidden;
-   }
-  
-  
-   .output-letter{ /*쓴글씨들 보이는 공간 css*/
-    
-    resize: none;
-    font-size: 5rem; /*여기가 쓴글씨 나오는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
-    margin-top: 3%;
-    outline: none;
-    
-   }
-
-   .note-y{
-    width: 50.2%;
-    height: 100%;
-    border-left: dashed 1px #000;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 12px;
-    text-align: left;
-    line-height: 195vh;
-    z-index: -300;
-   }
-   .note-x{
-    width: 100%;
-    height: 50.3%;
-    border-bottom: dashed 1px #000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-align: right;
-    line-height: 95vh;
-    font-size: 12px;
-    z-index: -400;
-   }
-   
-   .input-div{
-    position: relative;
-    display: table-cell;
-    vertical-align: middle;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-
-   }
-   </style>
-
-    
-    
-
- 
-    
 </body>
 
 </html>
