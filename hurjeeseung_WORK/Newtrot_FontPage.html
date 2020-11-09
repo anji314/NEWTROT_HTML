@@ -87,7 +87,18 @@
         document.bgColor =letters[idx].bgcolor;
         document.fgColor=letters[idx].font;
 
-      
+
+      if(document.body.offsetWidth>500){
+          document.getElementById("input-letter").style.fontSize='7.5rem';
+          
+      }else{
+         document.getElementById("input-letter").style.fontSize='2.2rem';
+         
+         let op =document.getElementsByClassName("output-letter")
+         for(i of op){
+              i.style.fontSize='2.5rem'
+          }
+      }
 
       var text=document.getElementsByTagName("textarea");
       for(var i=0;i<text.length;i++)text[i].style.color='#'+letters[idx].font;
