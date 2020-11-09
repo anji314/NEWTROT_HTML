@@ -60,6 +60,8 @@ $(function() {
 
 });
 
+var ckwindow =window.matchMedia("screen and (min-width:500px) ");
+if(ckwindow.matches){
 
 $(document).mousemove(function(event){
     
@@ -72,3 +74,4 @@ $(document).mousemove(function(event){
     yWeight = 1930 + yPercentFixed*90/100;
     $("#input-letter").css('font-variation-settings',"'TEMP' "+xWidth+",'YEAR' "+yWeight);
 });
+}

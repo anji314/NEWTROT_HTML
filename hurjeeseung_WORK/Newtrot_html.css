@@ -6,15 +6,24 @@
         justify-content: center;
         text-align: center;
         min-height: 100vh;
- 
+        min-width: 600px;
+
         
      }
-     
- 
+
+     @media(min-width:500px){
+     .slidebardiv{
+         display:none;
+     }
+     }
+     .slidebardiv{
+         position: absolute;
+         top : 70%;
+         width: 100%;
+     }
     .slidebar{
-     left: 50%;
-     width: 500px;
-     margin-left: -250px;
+     left: 10%;
+     width: 80%;
     
     }
     .slideval{
@@ -36,14 +45,14 @@
     #input-letter{
         position: relative;
         font-size: 7.5rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
-        font-family: "NEWtro_T"; /*들어가는 글자 폰트 지정이랑 초기 설정 값*/
+        font-family: "NEWtro_T",Times; /*들어가는 글자 폰트 지정이랑 초기 설정 값*/
   
         font-variation-settings: "YEAR" 1930, "TEMP" 0;
        
     }
     textarea{
      border:0;
-     font-family: "NEWtro_T";
+     font-family: "NEWtro_T",Times;
      width: 75%;
      background-color: transparent;
      text-align: center;
@@ -60,7 +69,7 @@
      
     }
  
-    .note-y{
+    #note-y{
      width: 50.2%;
      height: 100%;
      border-left: dashed 1px #000;
@@ -72,7 +81,7 @@
      line-height: 195vh;
      z-index: -300;
     }
-    .note-x{
+    #note-x{
      width: 100%;
      height: 50.3%;
      border-bottom: dashed 1px #000;

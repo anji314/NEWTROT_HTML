@@ -5,6 +5,7 @@
     
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>트로트 배리어블폰트: 뉴트롯체</title>
     <link href="./jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
    <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
@@ -13,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="./Newtrot.css">
     <link rel="stylesheet" type="text/css" href="./Newtrot_html.css">
     
+  
 </head>
  
 <body>
@@ -31,10 +33,27 @@
 
     </div>
 
-    <div class="note-x">빠르기</div>
-    <div class="note-y">시대</div>
-    
+    <div id="note-x">빠르기</div>
+    <div id="note-y">시대</div>
+
+
+    <div class="slidebardiv">
+        <div>
+        <p style="font-family: Arial, Helvetica, sans-serif;" > <!--font family속성에 폰트 설정한거야 여기 안의 글자는 설정한 폰트로 보여-->
+            YEAR : <input class="slideval" type="text" id="YEAR-val" readonly >
+        </p>
+        <div class="slidebar" id="YEAR" width=50%></div> <!--여기 슬라이드 바-->
+        </div>
+        <div>
+        <p style="font-family: Arial, Helvetica, sans-serif;">
+            TEMP : <input class="slideval" type="text" id="TEMP-val" readonly>
+        </p>
+        <div class="slidebar" id="TEMP"></div>
+        </div>
+        </div>
+
 </div>
+
 
 <br><br><br><br><br>
 
@@ -71,6 +90,16 @@
       var text=document.getElementsByTagName("textarea");
       for(var i=0;i<text.length;i++)text[i].style.color='#'+letters[idx].font;
 
+      var linex=document.getElementById("note-x");
+      linex.style.borderBottomColor='#'+letters[idx].font;
+      var liney=document.getElementById("note-y");
+      liney.style.borderLeftColor='#'+letters[idx].font;
+
+      var slidebarinput =document.getElementsByClassName("slideval");
+      for(s of slidebarinput){
+          s.style.color='#'+letters[idx].font;
+          s.style.backgroundColor ='#'+letters[idx].bgcolor;
+      }
       document.getElementById("input-letter").value="글자를 입력하세요."
 
       let list =document.getElementsByClassName("output-letter")
