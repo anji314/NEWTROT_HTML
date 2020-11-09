@@ -5,21 +5,31 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        min-height: 100vh;
-        min-width: 600px;
-
-        
+        min-height: 100vh;        
      }
 
      @media(min-width:500px){
-     .slidebardiv{
-         display:none;
+        .slidebardiv{
+             display:none;
+        }
      }
+     @media(max-width:500px){
+        #note-x{
+            display:none;
+            z-index: -300;
+        }
+        #note-y{
+            display: none;
+            z-index: -400;
+        }
      }
      .slidebardiv{
          position: absolute;
          top : 70%;
-         width: 100%;
+         left: 3%;
+         width: 90%;
+         z-index: 2;
+
      }
     .slidebar{
      left: 10%;
@@ -28,6 +38,7 @@
     }
     .slideval{
      border:0; 
+     display:none;
      color:#adadad; 
      font-weight:bold;
      width: 40px;

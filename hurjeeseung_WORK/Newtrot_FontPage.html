@@ -11,6 +11,7 @@
    <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src="./jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js"></script>
 
+
     <link rel="stylesheet" type="text/css" href="./Newtrot.css">
     <link rel="stylesheet" type="text/css" href="./Newtrot_html.css">
     
@@ -39,16 +40,17 @@
 
     <div class="slidebardiv">
         <div>
-        <p style="font-family: Arial, Helvetica, sans-serif;" > <!--font family속성에 폰트 설정한거야 여기 안의 글자는 설정한 폰트로 보여-->
-            YEAR : <input class="slideval" type="text" id="YEAR-val" readonly >
+        <p> <!--font family속성에 폰트 설정한거야 여기 안의 글자는 설정한 폰트로 보여-->
+            시대 <input class="slideval" type="text" id="YEAR-val" readonly >
         </p>
-        <div class="slidebar" id="YEAR" width=50%></div> <!--여기 슬라이드 바-->
+        <!--여기 슬라이드 바-->
+        <input class="slidebar" id="year" type="range" step="1" value="1930" min="1930" max="2020"/>
         </div>
         <div>
-        <p style="font-family: Arial, Helvetica, sans-serif;">
-            TEMP : <input class="slideval" type="text" id="TEMP-val" readonly>
+        <p>
+            빠르기 <input class="slideval" type="text" id="TEMP-val" readonly>
         </p>
-        <div class="slidebar" id="TEMP"></div>
+        <input class="slidebar" id="temp" type="range" step="1" value="0" min="0" max="1000"/>
         </div>
         </div>
 

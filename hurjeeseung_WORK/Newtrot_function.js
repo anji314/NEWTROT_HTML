@@ -1,33 +1,19 @@
 $(function() {
-    $("#YEAR").slider({
-        range: "max",
-        min: 1930,
-        max: 2020,
-        value: 1,
-        slide: function(event, ui) {
-            $("#YEAR-val").val(ui.value);
-            let temp=$("#TEMP-val").val();
-            $("#input-letter").css('font-variation-settings',"'YEAR' "+ui.value +",'TEMP' "+temp);
+    $("#year").on("propertychange change input",function(){
+        let yearval=$(this).val();
+        let temp=$("#TEMP-val").val();
+        $("#YEAR-val").val(yearval);
+        $("#input-letter").css('font-variation-settings',"'YEAR' "+yearval +",'TEMP' "+temp);
+    })
+    $("#YEAR-val").val($("#year").val());
 
-        }
-    });
-    $("#YEAR-val").val($("#YEAR").slider("value"));
-
-
-    $("#TEMP").slider({
-        range: "max",
-        min: 0,
-        max: 1000,
-        values: 1,
-        slide: function(event, ui) {
-            $("#TEMP-val").val(ui.value);
-            let year= $("#YEAR-val").val();
-           $("#input-letter").css('font-variation-settings',"'TEMP' "+ui.value+",'YEAR' "+year);
-
-        }
-    });
-    $("#TEMP-val").val($("#TEMP").slider("value"));
-
+    $("#temp").on("propertychange change input",function(){
+        let tempval=$(this).val();
+        let year= $("#YEAR-val").val();
+        $("#TEMP-val").val(tempval);
+        $("#input-letter").css('font-variation-settings',"'YEAR' "+year +",'TEMP' "+tempval);
+    })
+    $("#TEMP-val").val($("#temp").val());
 
     $("#input-letter").on("propertychange change keyup paste input",function(){
         $(".output-letter").html($(this).val());
@@ -59,6 +45,7 @@ $(function() {
 
 
 });
+
 
 var ckwindow =window.matchMedia("screen and (min-width:500px) ");
 if(ckwindow.matches){
