@@ -24,7 +24,7 @@
 
 
     <!--여기부턴 html 내용-->    
-
+    <div id="mainsub">트로트 베리어블 폰트 : 뉴트롯 체</div>
  
    <div class="first-part">
     <div class="input-div">
@@ -57,24 +57,38 @@
 </div>
 
 
-<br><br><br><br><br>
+<br><br><br><br>
 
     <div id="input-function">
-        
-<br>
         <!--여기 글씨체는 고정이야 -->
         <div id=type1>
+        <p class='type1_sub'>과거의 트롯트</p>
         <textarea class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 0" rows="1" readonly></textarea> <!--여기서 저기 YEAR랑 TEMP 값바꾸면 바뀌는거야 -->
+        <br><br>
+
+        <p class='type1_sub'>오늘날의 트롯트</p>
         <textarea class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 0" rows="1" readonly></textarea>
+        <br><br>
+
+        <p class='type1_sub'>빠른 과거의 트롯트</p>
         <textarea class=output-letter style="font-variation-settings: 'YEAR' 1930, 'TEMP' 1000" rows="1" readonly></textarea>
+        <br><br>
+
+        <p class='type1_sub'>빠른 오늘날의 트롯트</p>
         <textarea class=output-letter style="font-variation-settings: 'YEAR' 2020, 'TEMP' 1000" rows="1" readonly></textarea>
         </div>
         
-        
     </div>
-    
+    <br><br><br><br>
 
+    <div id='explanation'>
+        2020 KUCD GRADSHOW 작품입니다.<br>
+        자세한 내용은 www.kucd2020.com에서 확인하실 수 있습니다.<br><br>
+        
+        해당 글꼴은 저작권의 보호를 받고 있는 창작물입니다.<br>
+        불법 다운로드 및 유포/공유를 금지합니다.
 
+    </div>
 
 
 
@@ -87,18 +101,6 @@
         document.bgColor =letters[idx].bgcolor;
         document.fgColor=letters[idx].font;
 
-
-      if(document.body.offsetWidth>500){
-          document.getElementById("input-letter").style.fontSize='7.5rem';
-          
-      }else{
-         document.getElementById("input-letter").style.fontSize='2.2rem';
-         
-         let op =document.getElementsByClassName("output-letter")
-         for(i of op){
-              i.style.fontSize='2.5rem'
-          }
-      }
 
       var text=document.getElementsByTagName("textarea");
       for(var i=0;i<text.length;i++)text[i].style.color='#'+letters[idx].font;

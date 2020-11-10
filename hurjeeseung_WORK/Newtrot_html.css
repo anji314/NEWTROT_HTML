@@ -1,19 +1,36 @@
 
     body {
-        font-family: "NEWtro_T", Times;
+        font-family:Arial, Helvetica, sans-serif; /*인풋이랑 아우풋 부분 빼고는 폰트를 그냥 일반 폰트로 설정했어 바꿔도돼*/
+        font-weight: bold;
         display: block;
         align-items: center;
         justify-content: center;
         text-align: center;
-        min-height: 100vh;        
+        min-height: 100vh;  
+        margin: 0%;      
      }
 
-     @media(min-width:500px){
+     @media(min-width:455px){  /*여기가 웹일때 폰트 크기 지정하는 곳이야 455px보다 화면이 크면 웹이라고 인식해*/
         .slidebardiv{
              display:none;
         }
+        .type1_sub{
+            font-size: 1.1rem;
+        }
+        #mainsub{
+            font-size: 1.3rem;
+        }
+        #explanation{
+            font-size: 1.1rem;
+        }
+        #input-letter{
+            font-size: 7.5rem;
+        }
+        .output-letter{
+            font-size: 5rem;
+        }
      }
-     @media(max-width:500px){
+     @media(max-width:455px){ /*455px보다 작으면 모바일이라고 인식해*/
         #note-x{
             display:none;
             z-index: -300;
@@ -22,6 +39,22 @@
             display: none;
             z-index: -400;
         }
+        .type1_sub{
+            font-size: 0.3rem;
+        }
+        #mainsub{
+            font-size: 0.6rem;
+        }
+        #explanation{
+            font-size: 0.3rem;
+        }
+        #input-letter{
+            font-size: 2.2rem;
+        }
+        .output-letter{
+            font-size: 2.4rem;
+        }
+
      }
      .slidebardiv{
          position: absolute;
@@ -46,7 +79,7 @@
     }
     .first-part{
         
-        width: 98vw;
+        width: 100vw;
         height: 100vh;
     }
  
@@ -55,8 +88,8 @@
     }
     #input-letter{
         position: relative;
-        font-size: 7.5rem;  /*여기가 쓰는 글씨크기 바꾸는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
-        font-family: "NEWtro_T",Times; /*들어가는 글자 폰트 지정이랑 초기 설정 값*/
+        
+        font-family: "NEWtro_T",Times; 
   
         font-variation-settings: "YEAR" 1930, "TEMP" 0;
        
@@ -74,10 +107,14 @@
     .output-letter{ /*쓴글씨들 보이는 공간 css*/
      
      resize: none;
-     font-size: 5rem; /*여기가 쓴글씨 나오는곳. rem으로 하면 비율이 유지돼. 앞에 숫자를 바꿔*/
-     margin-top: 3%;
+     margin-top: 0%;
+     margin-bottom: 3%;
      outline: none;
      
+    }
+    .type1_sub{
+        margin:0%;
+        z-index: -200;
     }
  
     #note-y{
@@ -113,4 +150,15 @@
      height: 100vh;
      z-index: 1;
  
+    }
+
+    #mainsub{
+        position: absolute;
+        top:10%;
+        left: 10%;
+    }
+    #explanation{
+        text-align: left;
+        margin-left: 25%;
+        margin:10%
     }

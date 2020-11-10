@@ -27,7 +27,7 @@ $(function() {
        for(var i=0;i<output.length;i++)output[i].style.height='auto';
        $(".output-letter").height( $(".output-letter").prop('scrollHeight'));
 
-       if($(window).width()>505){
+       if($(window).width()>455){
            chagefontsize('web',content.length);
        }else{
            chagefontsize('mobile',content.length);
