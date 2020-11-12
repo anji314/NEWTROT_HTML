@@ -1,5 +1,13 @@
-
-    body {
+input[type=range] { 
+    -webkit-appearance: none; /*기본 스타일을 사용할지 말지 정하기 */
+    width:80%;
+    background: red; /*바 선색, transparent 로 설정하면 배경생이랑 동일해져 == 투명*/ 
+  
+  }
+   
+   
+   
+   body {
         font-family:Arial, Helvetica, sans-serif; /*인풋이랑 아우풋 부분 빼고는 폰트를 그냥 일반 폰트로 설정했어 바꿔도돼*/
         font-weight: bold;
         display: block;
