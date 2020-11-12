@@ -40,17 +40,29 @@ $(function() {
 // 여기가 글씨 개수대로 글자크기 바꾸는 곳이야, 글자수는 숫자들 바꾸면 되고 글자크기는 맘대로바꿔!
 function chagefontsize(windowtype,length){
     if(windowtype=='mobile'){                       //여기 모바일 일때
-        if(length <= 6 && length>=0){
-            $("#input-letter").css("fontSize",'3rem');
-            }else if (length > 6 && length <=15 ){
-            $("#input-letter").css("fontSize",'2.5rem');
+        if(length <= 1 && length>=0){
+            $("#input-letter").css("fontSize",'8rem');
+            }else if (length > 1 && length <=2 ){
+            $("#input-letter").css("fontSize",'7rem');
             }
-            else if(length>15&&length<=28){
-            $("#input-letter").css('font-size','2rem');
+            else if(length>2&&length<=3){
+            $("#input-letter").css('font-size','6rem');
             }
-            else if(length>28){
-            $("#input-letter").css('font-size','1.8rem');
+            else if(length>3&&length<=4){
+            $("#input-letter").css('font-size','5rem');
             }
+            else if(length>4&&length<=5){
+            $("#input-letter").css('font-size','4.5rem');
+            }
+            else if(length>5&&length<=7){
+            $("#input-letter").css('font-size','4rem');
+            }
+            else if(length>7&&length<=10){
+            $("#input-letter").css('font-size','3.5rem');
+            }
+            else if(length>15){
+            $("#input-letter").css('font-size','3rem');
+            } 
 
     }else if(windowtype=='web'){                // 여기 웹일때
         if(length <= 6 && length>=0){

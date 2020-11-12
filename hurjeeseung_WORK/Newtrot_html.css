@@ -29,6 +29,15 @@
         .output-letter{
             font-size: 5rem;
         }
+        .input-div{
+            position: relative;
+            display: table-cell;
+            vertical-align: middle;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+ 
+         }
      }
      @media(max-width:455px){ /*455px보다 작으면 모바일이라고 인식해*/
         #note-x{
@@ -40,20 +49,34 @@
             z-index: -400;
         }
         .type1_sub{
-            font-size: 0.3rem;
+            font-size: 1rem;
         }
         #mainsub{
-            font-size: 0.6rem;
+            font-size: 1.2rem;
+           
+            
         }
         #explanation{
-            font-size: 0.3rem;
+            font-size: 1rem;
         }
         #input-letter{
             font-size: 2.2rem;
+            top: 10%;
         }
         .output-letter{
-            font-size: 2.4rem;
+            font-size: 2.3rem;
         }
+        .input-div{
+            position:absolute;
+            top: 40%;
+            display: table-cell;
+            vertical-align: middle;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+    
+    }
+    
 
      }
      .slidebardiv{
@@ -67,19 +90,26 @@
     .slidebar{
      left: 10%;
      width: 80%;
-    
+     height: 2px;
+     border-radius: 1px;
+   
     }
+  
+
+
+
     .slideval{
      border:0; 
      display:none;
      color:#adadad; 
      font-weight:bold;
      width: 40px;
+    
      
     }
     .first-part{
         
-        width: 100vw;
+        width: 98vw;
         height: 100vh;
     }
  
@@ -115,19 +145,23 @@
     .type1_sub{
         margin:0%;
         z-index: -200;
-    }
+        opacity: 0.7;
+    } 
  
     #note-y{
+     
      width: 50.2%;
-     height: 100%;
+     height: 100%; 
      border-left: dashed 1px #000;
      position: absolute;
      top: 0;
      right: 0;
      font-size: 12px;
      text-align: left;
-     line-height: 195vh;
+     /*line-height: 195vh;*/
      z-index: -300;
+     opacity: 0.6;
+  
     }
     #note-x{
      width: 100%;
@@ -137,28 +171,62 @@
      top: 0;
      left: 0;
      text-align: right;
-     line-height: 95vh;
+     /*line-height: 95vh;*/
      font-size: 12px;
      z-index: -400;
+     opacity: 0.6;
+   
     }
     
-    .input-div{
-     position: relative;
-     display: table-cell;
-     vertical-align: middle;
-     width: 100vw;
-     height: 100vh;
-     z-index: 1;
- 
-    }
+
 
     #mainsub{
         position: absolute;
         top:10%;
         left: 10%;
+        
     }
     #explanation{
         text-align: left;
         margin-left: 25%;
-        margin:10%
+        margin:10%;
+        line-height: 3.3vh;
     }
+
+#axis-past{
+    position:absolute;
+    text-align: left;
+    left: 3%;
+    top: 3%;
+    font-size: 0.8rem;
+  
+}
+#axis-today{
+    position:absolute;
+    text-align: left;
+    left: 3%;
+    bottom: 3%;
+    margin-top: -3%;
+    font-size: 0.8rem;
+    
+}
+
+
+#axis-slow{
+    position:absolute;
+    bottom: 3%;
+    text-align: right;
+    left: 3%;
+    font-size: 0.8rem;
+   
+}
+#axis-fast{
+     position:absolute;
+    text-align: left;
+    right: 3%;
+    bottom: 3%;
+    font-size: 0.8rem;
+ 
+   
+   
+}
