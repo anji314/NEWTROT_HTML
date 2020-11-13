@@ -52,16 +52,16 @@ function chagefontsize(windowtype,length){
             $("#input-letter").css('font-size','5rem');
             }
             else if(length>4&&length<=5){
-            $("#input-letter").css('font-size','4.5rem');
-            }
-            else if(length>5&&length<=7){
             $("#input-letter").css('font-size','4rem');
             }
-            else if(length>7&&length<=10){
+            else if(length>5&&length<=7){
             $("#input-letter").css('font-size','3.5rem');
             }
-            else if(length>15){
+            else if(length>7&&length<=10){
             $("#input-letter").css('font-size','3rem');
+            }
+            else if(length>15){
+            $("#input-letter").css('font-size','2.75rem');
             } 
 
     }else if(windowtype=='web'){                // 여기 웹일때

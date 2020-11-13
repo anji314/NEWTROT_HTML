@@ -2,9 +2,15 @@ input[type=range] {
     -webkit-appearance: none; /*기본 스타일을 사용할지 말지 정하기 */
     width:80%;
     background: red; /*바 선색, transparent 로 설정하면 배경생이랑 동일해져 == 투명*/ 
-  
   }
    
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: red;
+    height: 20px;
+    width: 20px;
+    border-radius: 15px;
+}
    
    
    body {
@@ -70,18 +76,22 @@ input[type=range] {
         #input-letter{
             font-size: 2.2rem;
             top: 10%;
+            
+            
         }
         .output-letter{
             font-size: 2.3rem;
+            line-height: 13vw;
         }
         .input-div{
-            position:absolute;
-            top: 40%;
+            position:relative;
+            top: 100px;
             display: table-cell;
             vertical-align: middle;
             width: 100vw;
-            height: 100vh;
+            height: 50vh;
             z-index: 1;
+            
     
     }
     
@@ -89,7 +99,7 @@ input[type=range] {
      }
      .slidebardiv{
          position: absolute;
-         top : 70%;
+         top : 65%;
          left: 3%;
          width: 90%;
          z-index: 2;
@@ -139,6 +149,7 @@ input[type=range] {
      background-color: transparent;
      text-align: center;
      overflow: hidden;
+        
     }
    
    
@@ -160,7 +171,7 @@ input[type=range] {
      
      width: 50.2%;
      height: 100%; 
-     border-left: dashed 1px #000;
+     border-left: dotted 1px #000;
      position: absolute;
      top: 0;
      right: 0;
@@ -174,7 +185,7 @@ input[type=range] {
     #note-x{
      width: 100%;
      height: 50.3%;
-     border-bottom: dashed 1px #000;
+     border-bottom: dotted 1px #000;
      position: absolute;
      top: 0;
      left: 0;
