@@ -250,3 +250,8 @@ input[type=range]::-webkit-slider-thumb{
    
    
 }
+
+a:link { text-decoration: none;}
+a:visited { text-decoration: none;}
+a:active{ text-decoration: none;}
+a:hover { text-decoration:none;}
