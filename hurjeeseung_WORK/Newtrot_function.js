@@ -80,10 +80,9 @@ function chagefontsize(windowtype,length){
 
 }
 
-var ckwindow =window.matchMedia("screen and (min-width:500px) ");
-if(ckwindow.matches){
 $(document).mousemove(function(event){
-    
+    var width_size = window.outerWidth;
+    if(width_size>800){
     xPercent = event.pageX / $( '.first-part' ).width() * 100;
     yPercent = event.pageY / $( '.first-part' ).height() * 100;
     xPercentFixed = xPercent.toFixed();
@@ -92,5 +91,6 @@ $(document).mousemove(function(event){
     xWidth = 0 + xPercentFixed*10;
     yWeight = 1930 + yPercentFixed*90/100;
     $("#input-letter").css('font-variation-settings',"'TEMP' "+xWidth+",'YEAR' "+yWeight);
+    }
+    
 });
-}

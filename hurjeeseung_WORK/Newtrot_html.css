@@ -25,7 +25,7 @@ input[type=range]::-webkit-slider-thumb{
         margin: 0%;      
      }
 
-     @media(min-width:455px){  /*여기가 웹일때 폰트 크기 지정하는 곳이야 455px보다 화면이 크면 웹이라고 인식해*/
+     @media(min-width:800px){  /*여기가 웹일때 폰트 크기 지정하는 곳이야 455px보다 화면이 크면 웹이라고 인식해*/
         .slidebardiv{
              display:none;
         }
@@ -54,7 +54,7 @@ input[type=range]::-webkit-slider-thumb{
  
          }
      }
-     @media(max-width:455px){ /*455px보다 작으면 모바일이라고 인식해*/
+     @media(max-width:800px){ /*455px보다 작으면 모바일이라고 인식해*/
         #note-x{
             display:none;
             z-index: -300;
