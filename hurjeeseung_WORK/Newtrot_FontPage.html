@@ -84,11 +84,22 @@
     <div id='explanation'>
         2020 KUCD GRADSHOW 허지승의 작업입니다.<br>
         자세한 내용은 www.kucd2020.com에서 확인하실 수 있습니다.<br><br><br><br>
-        
-        
-        <a href="https://github.com/anji314?tab=repositories" target="_blank"> <i class="fab fa-github"></i> anji314</a>
 
     </div>
+    
+    
+    <footer> <div id='footer'>
+        <div class="foot_kucd">www.kucd2020.com</div>
+        <div class="foot_insta"><a href="https://www.instagram.com/j._.win_a/" target="_blank"><i class="fab fa-instagram" style="size: 7x;"></i> j._.win_a</a></div>
+        
+        <div class="foot_anji">Thanks to anji314 
+            <a href="https://github.com/anji314?tab=repositories" target="_blank"><i class="fab fa-github"></i></a>
+            
+            <a href="https://footprint-of-nawin.tistory.com/" target="_blank"><i class="fas fa-rss"></i></a></div>
+        
+        </div>
+    
+    </footer>
 
 
     
@@ -110,6 +121,9 @@
       var liney=document.getElementById("note-y");
       liney.style.borderLeftColor='#'+letters[idx].font;
 
+      var footerline=document.getElementById("footer");
+      footerline.style.borderTopColor='#'+letters[idx].font;
+      
       var slidebarinput =document.getElementsByClassName("slideval");
       for(s of slidebarinput){
           s.style.color='#'+letters[idx].font;
