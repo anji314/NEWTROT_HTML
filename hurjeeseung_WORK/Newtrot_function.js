@@ -82,7 +82,7 @@ function chagefontsize(windowtype,length){
 
 $(document).mousemove(function(event){
     var width_size = window.outerWidth;
-    if(width_size>800){
+    if(width_size>=800){
     xPercent = event.pageX / $( '.first-part' ).width() * 100;
     yPercent = event.pageY / $( '.first-part' ).height() * 100;
     xPercentFixed = xPercent.toFixed();
