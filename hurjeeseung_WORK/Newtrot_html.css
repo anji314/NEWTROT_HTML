@@ -37,6 +37,7 @@ input[type=range]::-webkit-slider-thumb{
         }
         #explanation{
             font-size: 1.1rem;
+            line-height: 1.4rem;
         }
         #input-letter{
             font-size: 7.5rem;
@@ -101,6 +102,9 @@ input[type=range]::-webkit-slider-thumb{
         }
         #explanation{
             font-size: 1rem;
+            line-height: 1.5rem;
+            word-break: keep-all;
+        
         }
         #input-letter{
             font-size: 2.2rem;
@@ -240,7 +244,7 @@ input[type=range]::-webkit-slider-thumb{
         text-align: left;
         margin-left: 25%;
         margin:10%;
-        line-height: 3.3vh;
+        
     }
 
     #footer{
