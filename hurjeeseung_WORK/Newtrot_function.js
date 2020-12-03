@@ -22,12 +22,13 @@ $(function() {
 
        $(this)[0].style.height='auto';
        $(this).height( $(this).prop('scrollHeight'));
+       //$(this).height(1).height($(this).prop('scrollHeight') );	
 
        var output=$(".output-letter");
        for(var i=0;i<output.length;i++)output[i].style.height='auto';
        $(".output-letter").height( $(".output-letter").prop('scrollHeight'));
 
-       if($(window).width()>455){
+       if($(window).width()>=800){
            chagefontsize('web',content.length);
        }else{
            chagefontsize('mobile',content.length);
