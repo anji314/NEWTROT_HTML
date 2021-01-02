@@ -112,8 +112,8 @@
 
 ##### (2) 모바일 버전
 <br>
-![폰트페이지 모바일 버전](https://user-images.githubusercontent.com/33454164/103463533-6d475780-4d70-11eb-894c-707c85e89c9b.png)
-
+<img width="250" alt="폰트페이지 모바일 버전" src="https://user-images.githubusercontent.com/33454164/103463533-6d475780-4d70-11eb-894c-707c85e89c9b.png">
+https://user-images.githubusercontent.com/33454164/103463533-6d475780-4d70-11eb-894c-707c85e89c9b.png
 
 
 구현한 기능
