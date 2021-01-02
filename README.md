@@ -88,6 +88,7 @@
 #### 2. 폰트 페이지
 
 ##### (1) 웹버전
+<img width="452" alt="폰트페이지 웹버전" src="https://user-images.githubusercontent.com/33454164/103463481-07f36680-4d70-11eb-9c0a-86b08d6afe9e.png">
 
 
 
